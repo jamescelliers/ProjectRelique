@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectRelique_Engine.CSharp", "ProjectRelique_Engine.CSharp.csproj", "{7BD3D361-2280-7329-4F84-0A81D42EBBFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BD3D361-2280-7329-4F84-0A81D42EBBFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD3D361-2280-7329-4F84-0A81D42EBBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD3D361-2280-7329-4F84-0A81D42EBBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD3D361-2280-7329-4F84-0A81D42EBBFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
