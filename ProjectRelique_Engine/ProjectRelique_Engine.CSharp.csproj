@@ -65,10 +65,12 @@
   <ItemGroup>
     <Compile Include="Assets\EngineExtensions\ExtensionMethods.cs" />
     <Compile Include="Assets\EngineExtensions\SpriteAnimator.cs" />
-    <Compile Include="Assets\Item.cs" />
-    <Compile Include="Assets\ItemManager.cs" />
-    <Compile Include="Assets\ItemUseable.cs" />
-    <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\Items\Item.cs" />
+    <Compile Include="Assets\Items\ItemTypeMelee.cs" />
+    <Compile Include="Assets\Items\ItemTypeProjectile.cs" />
+    <Compile Include="Assets\Items\ItemUseable.cs" />
+    <Compile Include="Assets\Managers\ItemManager.cs" />
+    <Compile Include="Assets\Player\Player.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
