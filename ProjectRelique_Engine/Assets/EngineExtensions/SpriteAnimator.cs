@@ -13,6 +13,7 @@ public class SpriteAnimator : MonoBehaviour {
     public bool IsPlaying { get; private set; }
     private bool inReverse = false;
     public bool PlayOnStart = false;
+    public int DefaultIndex = 0;
 
     // Use this for initialization
     void Start () {
@@ -25,7 +26,7 @@ public class SpriteAnimator : MonoBehaviour {
         }
         if (SpriteList != null)
         {
-            sr.sprite = SpriteList[currentIndex];
+            sr.sprite = SpriteList[DefaultIndex];
         }
         if (PlayOnStart)
         {
@@ -77,10 +78,11 @@ public class SpriteAnimator : MonoBehaviour {
         }
     }
 
-    public void SetSprites(Sprite[] sprites)
+    public void SetSprites(Sprite[] sprites, int _defaultIndex)
     {
         SpriteList = sprites;
-        sr.sprite = SpriteList[currentIndex];
+        DefaultIndex = _defaultIndex;
+        sr.sprite = SpriteList[DefaultIndex];
     }
 
     public void Play()
@@ -91,5 +93,7 @@ public class SpriteAnimator : MonoBehaviour {
     public void Stop()
     {
         IsPlaying = false;
+        sr.sprite = SpriteList[DefaultIndex];
+
     }
 }
