@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SpriteAnimator : MonoBehaviour {
 
-    public enum PlayMode {Loop, RubberBand }
+    public enum PlayMode {Loop, RubberBand, PlayOnce }
     public PlayMode Mode = PlayMode.Loop;
     public Sprite[] SpriteList;
     private SpriteRenderer sr;
@@ -15,7 +15,6 @@ public class SpriteAnimator : MonoBehaviour {
     public bool PlayOnStart = false;
     public int DefaultIndex = 0;
 
-    // Use this for initialization
     void Start () {
         if (GetComponent<SpriteRenderer>())
         {
@@ -24,7 +23,7 @@ public class SpriteAnimator : MonoBehaviour {
         {
             sr = gameObject.AddComponent<SpriteRenderer>();
         }
-        if (SpriteList != null)
+        if (SpriteList.Length > 0)
         {
             sr.sprite = SpriteList[DefaultIndex];
         }
@@ -34,7 +33,6 @@ public class SpriteAnimator : MonoBehaviour {
         }
     }
 	
-	// Update is called once per frame
 	void Update () {
         if (IsPlaying)
         {
@@ -48,9 +46,13 @@ public class SpriteAnimator : MonoBehaviour {
 
                 if (currentIndex == (SpriteList.Length - 1))
                 {
-                    if (Mode == PlayMode.Loop)
+                    if (Mode != PlayMode.RubberBand)
                     {
                         currentIndex = 0;
+                        if(Mode == PlayMode.PlayOnce)
+                        {
+                            Stop();
+                        }
                     }
                     else
                     {
