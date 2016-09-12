@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
         get { return health; }
         set { health = value; }
     }
-
     private GameObject equippedItem;
     public GameObject EquippedItem
     {
@@ -24,9 +23,9 @@ public class Player : MonoBehaviour
             equippedItem.ParseCloneName();
             equippedItem.transform.SetParent(transform);
             GetComponent<SpriteRenderer>().sprite = equippedItem.GetComponent<Item>().EquippedSprite;
-            if (equippedItem.GetComponent<ItemUseable>())
+            if (equippedItem.GetComponent<Item>())
             {
-                ItemUseable item = equippedItem.GetComponent<ItemUseable>();
+                Item item = equippedItem.GetComponent<Item>();
                 if (item.UseAnimationSprites.Length > 0)
                 {
                     spriteAnimator.SetSprites(item.UseAnimationSprites, item.DefaultSpriteIndex);
@@ -52,6 +51,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        //Input
+
+        //Rotate
         mousePos = Input.mousePosition;
         mousePos.z = 10;
         playerPos = Camera.main.WorldToScreenPoint(transform.position); // convert player pos to screen coords
@@ -60,11 +62,28 @@ public class Player : MonoBehaviour
         angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg; // get angle to rotate to from mouse
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90)); // rotate to angle
 
+        //Move
         float vAmount = Input.GetAxis("Vertical");
         transform.position += (Vector3.up * vAmount * Time.deltaTime * currentSpeed);
         float hAmount = Input.GetAxis("Horizontal");
         transform.position += (Vector3.right * hAmount * Time.deltaTime * currentSpeed);
 
+
+        //Use
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (equippedItem.GetComponent<Item>())
+            {
+                print("Using item...");
+                Item item = equippedItem.GetComponent<Item>();
+                item.Use();
+                spriteAnimator.Play();
+
+            }
+        }
+
+
+        //Animate legs
         if ((hAmount > 0 || vAmount > 0) || (hAmount < 0 || vAmount < 0))
         {
             legs.SendMessage("Play");
@@ -72,18 +91,6 @@ public class Player : MonoBehaviour
         else
         {
             legs.SendMessage("Stop");
-        }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (equippedItem.GetComponent<ItemUseable>())
-            {
-                print("Using item...");
-                ItemUseable item = equippedItem.GetComponent<ItemUseable>();
-                item.Use();
-                spriteAnimator.Play();
-
-            }
         }
     }
 }
