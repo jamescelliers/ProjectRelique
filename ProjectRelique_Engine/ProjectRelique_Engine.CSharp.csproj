@@ -63,13 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ContentLoader.cs" />
     <Compile Include="Assets\DeveloperMode.cs" />
     <Compile Include="Assets\EngineExtensions\ExtensionMethods.cs" />
     <Compile Include="Assets\EngineExtensions\SpriteAnimator.cs" />
     <Compile Include="Assets\HitCollider.cs" />
     <Compile Include="Assets\Items\Item.cs" />
     <Compile Include="Assets\Items\ToolItem.cs" />
+    <Compile Include="Assets\Managers\ContentLoader.cs" />
     <Compile Include="Assets\Managers\ItemManager.cs" />
     <Compile Include="Assets\Player\Player.cs" />
   </ItemGroup>

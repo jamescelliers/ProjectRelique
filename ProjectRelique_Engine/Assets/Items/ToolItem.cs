@@ -7,7 +7,7 @@ public class ToolItem : Item
     public enum ToolType { Melee, Projectile }
     public ToolType ToolItemType;
     public GameObject HitColliderPrefab;
-
+  
     private bool canFire = true;
     public float FireRate = 1f;
     private float fireRateTimer = 0f;
