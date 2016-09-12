@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemManager : MonoBehaviour {
+public class ItemManager : MonoBehaviour
+{
 
     public static Item[] Items;
     public Item[] ItemsToLoad;
 
+    protected ItemManager() { }
 
-	void Start () {
+    void Awake()
+    {
         Items = ItemsToLoad;
-	}
+    }
 
     public static GameObject FindWithName(string nameToFind)
     {
@@ -20,6 +23,13 @@ public class ItemManager : MonoBehaviour {
                 return Items[i].gameObject;
             }
         }
+        print("ERROR: Couldnt find item with name of \"" + nameToFind + "\". Returned Default(empty) Item instead");
         return Items[0].gameObject;
+    }
+
+    public void SetItems()
+    {
+        Items = ItemsToLoad;
+
     }
 }
