@@ -15,14 +15,12 @@ public class SpriteAnimator : MonoBehaviour {
     public bool PlayOnStart = false;
     public int DefaultIndex = 0;
 
+    public void Awake()
+    {
+        sr = transform.GetOrAddComponent<SpriteRenderer>();
+    }
+
     void Start () {
-        if (GetComponent<SpriteRenderer>())
-        {
-            sr = GetComponent<SpriteRenderer>();
-        }else
-        {
-            sr = gameObject.AddComponent<SpriteRenderer>();
-        }
         if (SpriteList.Length > 0)
         {
             sr.sprite = SpriteList[DefaultIndex];
