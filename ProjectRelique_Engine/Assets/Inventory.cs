@@ -28,6 +28,16 @@ public class Inventory : MonoBehaviour {
         //Add in index
     }
 
+    public InventorySlot[] GetSlots()
+    {
+        InventorySlot[] _slots = new InventorySlot[slots.Length];
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            _slots[i] = slots[i].GetComponent<InventorySlot>();
+        }
+        return _slots;
+    }
+
     public void FindNextSlotWithItem(string itemName)
     {
         //iterate slots and check if item name is same as input param
