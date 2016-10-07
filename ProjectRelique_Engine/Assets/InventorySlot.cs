@@ -17,7 +17,7 @@ public class InventorySlot : MonoBehaviour {
     void Start () {
         Index = int.Parse(gameObject.name.Replace("Slot", ""));
         ItemInSlot = ItemManager.FindWithName("Empty");
-        print("Created Inventory Slot with Index of [" + Index + "] and " + ItemInSlot.GetComponent<Item>().Name + " as Default Item");
+        //print("Created Inventory Slot with Index of [" + Index + "] and " + ItemInSlot.GetComponent<Item>().Name + " as Default Item");
 	}
 	
 	// Update is called once per frame
