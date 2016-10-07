@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
         {
             if(equippedItem != null)
             {
-                equippedItem.GetComponent<Item>().Dropped = true;
+                Destroy(equippedItem);
             }
             equippedItem = (GameObject)Instantiate(value, transform.position, transform.rotation);
             equippedItem.ParseCloneName();
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     {
         spriteAnimator = GetComponent<SpriteAnimator>();
         legs = transform.FindChild("Legs").gameObject;
-        EquippedItem = ItemManager.FindWithName("Rock");
+        EquippedItem = ItemManager.FindWithName("Empty");
     }
 
     void Update()
