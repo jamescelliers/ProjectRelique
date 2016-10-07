@@ -75,8 +75,11 @@
     <Compile Include="Assets\Managers\ContentLoader.cs" />
     <Compile Include="Assets\Managers\ItemManager.cs" />
     <Compile Include="Assets\Player\Player.cs" />
-    <Compile Include="Assets\Screen.cs" />
-    <Compile Include="Assets\UIManager.cs" />
+    <Compile Include="Assets\UI\DeveloperMenu.cs" />
+    <Compile Include="Assets\UI\InventoryMenu.cs" />
+    <Compile Include="Assets\UI\ItemUI.cs" />
+    <Compile Include="Assets\UI\Screen.cs" />
+    <Compile Include="Assets\UI\UIManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
